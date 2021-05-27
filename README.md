@@ -25,6 +25,21 @@ Usage of ./sc:
 
 Download the latest release from Github for your appropriate operating system.
 
+For Linux and Mac the following commands should download snicat for you:
+
+```
+wget "https://github.com/CTFd/snicat/releases/latest/download/sc_`uname`_`uname -m`" -O sc
+chmod +x sc
+```
+
+For Mac, you may need to remove the quarantine attribute by running:
+
+```
+xattr -d com.apple.quarantine sc
+```
+
+For Windows, you can download the x64 exe [here](https://github.com/CTFd/snicat/releases/latest/download/sc_Windows_x86_64.exe) and then run it from the command prompt.
+
 # Examples
 
 ## Basic Usage
