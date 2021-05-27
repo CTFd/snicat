@@ -1,0 +1,41 @@
+---
+name: Build binaries
+
+on:
+  release:
+    types: [created, edited]
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: Build binaries
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.15.8'
+
+      - run: go fmt
+
+      - uses: goreleaser/goreleaser-action@v2
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          version: latest
+          args: build --snapshot
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: |
+           ./dist/*
+
+      - uses: goreleaser/goreleaser-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ github.event_name == 'release' }}
+        with:
+          version: latest
+          args: release --rm-dist
