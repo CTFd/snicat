@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/therootcompany/sclient"
+	sclient "git.rootprojects.org/root/sclient.go"
 )
 
 var insecure = flag.Bool("insecure", false, "Disable verification of server SSL certificate")
