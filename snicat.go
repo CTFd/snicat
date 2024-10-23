@@ -15,7 +15,7 @@ var servername = flag.String("servername", "", "Server Name Indication (SNI) to 
 var bind = flag.String("bind", "", "Tunnel connection to a local unencrypted port (e.g. localhost:3000, 3000)")
 var (
 	commit  = "unknown"
-	version = "v0.0.0"
+	version = "v0.0.2"
 )
 
 func init() {
