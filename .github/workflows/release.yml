@@ -24,7 +24,7 @@ jobs:
       - uses: goreleaser/goreleaser-action@v6
         if: ${{ github.event_name == 'pull_request' }}
         with:
-          version: latest
+          version: 2.3.2
           args: build --snapshot
 
       - uses: actions/upload-artifact@v3
@@ -37,5 +37,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ github.event_name == 'release' }}
         with:
-          version: latest
+          version: 2.3.2
           args: release --rm-dist
