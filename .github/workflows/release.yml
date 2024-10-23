@@ -21,7 +21,7 @@ jobs:
 
       - run: go fmt
 
-      - uses: goreleaser/goreleaser-action@v2
+      - uses: goreleaser/goreleaser-action@v6
         if: ${{ github.event_name == 'pull_request' }}
         with:
           version: latest
